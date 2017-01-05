@@ -1,3 +1,2 @@
 # mat_inverse
-Matlab code to invert for the dispersion curve
-
+Matlab code to invert for the dispersion curve.
