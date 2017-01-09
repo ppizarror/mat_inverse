@@ -6,8 +6,6 @@ function [niter,vr_iter,vp_iter,vs_iter,dns_iter] = mat_inverse(tag,freq,vr_exp,
 %       thk, vp, vs, dns
 %   3. parameters control the inversion
 %       maxiter, mu, tol_vs (change in vs)
-addpath('/home/yma/Codes/Surf.Codes/mat_disperse');
-
 
 nl = length(thk);
 % weight matrix

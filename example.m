@@ -1,9 +1,9 @@
 % 1-10 sec Love wave disperion from CVM model
 function example
 close all;
-addpath('/home/yma/Codes/Surf.Codes/mat_disperse');
+%addpath('/home/yma/Codes/Surf.Codes/mat_disperse');
 
-itheo = 0;
+itheo = 1;
 disp_theo  = 'disp_theo.txt';
 model_theo = 'CVM_basin.mdl';
 
@@ -149,17 +149,21 @@ z1   = z(1:end-1);
 z2   = z(2:end);
 zmid = (z1 + z2)./2; 
 
-vp_file = '/export/nobackup/yma/LASSIE/CVMh_ref/vp_basin.grd';
-vs_file = '/export/nobackup/yma/LASSIE/CVMh_ref/vs_basin.grd';
-rho_file= '/export/nobackup/yma/LASSIE/CVMh_ref/rho_basin.grd';
+vp_file = 'vp_basin.grd';
+vs_file = 'vs_basin.grd';
+rho_file= 'rho_basin.grd';
 
 vp_data = load(vp_file);
 vs_data = load(vs_file);
 rho_data= load(rho_file);
 
-vp = interp1(vp_data(:,1),vp_data(:,2),zmid);
-vs = interp1(vs_data(:,1),vs_data(:,2),zmid);
-rho= interp1(rho_data(:,1),rho_data(:,2),zmid);
+% vp = interp1(vp_data(:,1),vp_data(:,2),zmid);
+% vs = interp1(vs_data(:,1),vs_data(:,2),zmid);
+% rho= interp1(rho_data(:,1),rho_data(:,2),zmid);
+
+vp = vp_data(:,2);
+vs = vs_data(:,2);
+rho= rho_data(:,2);
 
 thk= z2-z1;
 thk= thk(:);
