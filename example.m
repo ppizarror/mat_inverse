@@ -3,7 +3,7 @@ function example
 close all;
 %addpath('/home/yma/Codes/Surf.Codes/mat_disperse');
 
-itheo = 0;
+itheo = 1;
 disp_theo  = 'disp_theo.txt';
 model_theo = 'CVM_basin.mdl';
 
@@ -76,10 +76,10 @@ end
 if ~itheo
     data   = load(disp_theo);
     period = data(:,1);
-    freq   = 1./period;
     nfreq  = length(period);
     vr = data(:,2);
 end
+freq   = 1./period;
 
 % add noise to the dispersion curve
 sigma = 0.02 + zeros(nfreq,1);
@@ -104,8 +104,9 @@ mu = 10;
 tol_vs = 0.01;
 
 % initial model, 15 km
-z1 = 0:1:40;
+z1 = 0:1:15;
 [thk1,dns1,vp1,vs1] = create_model(z1);
+
 % make a constant shift
 dns1 = 120/100 * dns1;
 vp1  = 120/100 * vp1;
@@ -147,7 +148,7 @@ function [thk,rho,vp,vs] = create_model(z)
 % create the mid points
 z1   = z(1:end-1);
 z2   = z(2:end);
-zmid = (z1 + z2)./2
+zmid = (z1 + z2)./2;
 
 vp_file = 'vp_basin.grd';
 vs_file = 'vs_basin.grd';

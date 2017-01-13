@@ -22,13 +22,12 @@ for line in d:
     for i in nline:
         if i is not '':
             rline.append(i)
-    ksum += float(rline[0])
     if rline[0] <= 0.0:
         break
     vp.write('{0}\t{1}\n'.format(ksum, rline[1]))
     vs.write('{0}\t{1}\n'.format(ksum, rline[2]))
     rh.write('{0}\t{1}\n'.format(ksum, rline[3]))
-
+    ksum += float(rline[0])
 
 # Se cierran los archivos
 def close_object(o):
