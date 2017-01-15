@@ -29,8 +29,14 @@ for line in d:
     rh.write('{0}\t{1}\n'.format(ksum, rline[3]))
     ksum += float(rline[0])
 
+
 # Se cierran los archivos
 def close_object(o):
+    """
+    Se cierran los archivos abiertos
+    :param o:
+    :return:
+    """
     o.flush()
     o.close()
 
