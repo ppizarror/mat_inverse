@@ -37,7 +37,7 @@ if itheo
     % plot(T_rbh,vr_rbh,'ko-');
     hold on;
     plot(freq, vr,'ro-');
-    xlabel('T'); ylabel('C');
+    xlabel('Frecuency ${s}^{-1}$'); ylabel('C');
     % legend('rbh','this code');
     title('Dispersion curve');
     hold off;
@@ -92,7 +92,7 @@ fprintf('Total number of iterations: %d \n',niter);
 
 figure(2)
 hold on;
-plot( freq, vr_iter(:,niter),' ro-');
+plot( freq, vr_iter(:,niter),' ko-');
 
 % plot the model
 % [thk0,dns0,vp0,vs0] = read_model_rbh(model_theo);
