@@ -1,4 +1,4 @@
-function [niter,vr_iter,vp_iter,vs_iter,dns_iter] = mat_inverse(tag,freq,vr_exp,sigma,thk,vp,vs,dns,maxiter, mu, tol_vs)
+function [niter,vr_iter,vp_iter,vs_iter,dns_iter] = mat_inverse(tag,freq,vr_exp,sigma,thk,vp,vs,dns,maxiter, mu,tol_vs)
 % input:
 %   1. dispersion curve
 %       L/R, freq, vr_exp, sigma
@@ -33,7 +33,7 @@ for i=1:maxiter
         
     % calculate theoretical phase velocity and partial derivatives
     % warning: presently the code only handle 1 type of dispersion!
-    [vr,dvrvs,dvrrho] = mat_disperse(thk,dns0,vp0,vs0,freq,'R');
+    [vr,dvrvs,dvrrho] = mat_disperse(thk,dns0,vp0,vs0,freq,tag);
     
     %jac = [real(squeeze(dvrvs)) real(squeeze(dvrrho))];
     jac = real(squeeze(dvrvs));
@@ -84,10 +84,10 @@ end
 
 % curvature matrix for regularization
 function delta = curv(m,n)
-delta   = diag( ones(1,m),0 ) + diag(-2*ones(1,m-1), 1 ) + diag(ones(1,m-2),2);
-  tmp   = zeros(m,1);
-tmp(m)  = -1; 
-tmp(m-1)=  1; 
-delta   = [delta tmp];
+    delta   = diag( ones(1,m),0 ) + diag(-2*ones(1,m-1), 1 ) + diag(ones(1,m-2),2);
+      tmp   = zeros(m,1);
+    tmp(m)  = -1; 
+    tmp(m-1)=  1; 
+    delta   = [delta tmp];
 end
 
