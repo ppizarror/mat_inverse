@@ -33,7 +33,7 @@ for i=1:maxiter
         
     % calculate theoretical phase velocity and partial derivatives
     % warning: presently the code only handle 1 type of dispersion!
-    [vr,dvrvs,dvrrho] = mat_disperse(thk,dns0,vp0,vs0,freq,'L');
+    [vr,dvrvs,dvrrho] = mat_disperse(thk,dns0,vp0,vs0,freq,'R');
     
     %jac = [real(squeeze(dvrvs)) real(squeeze(dvrrho))];
     jac = real(squeeze(dvrvs));

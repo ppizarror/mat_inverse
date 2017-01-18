@@ -15,15 +15,14 @@ vs = open('vs_basin.grd', 'w')
 rh = open('rho_basin.grd', 'w')
 
 # Se transforma el archivo
-ksum = 0
+ksum = 0.0
 for line in d:
+    print line
     nline = line.split(' ')
     rline = []
     for i in nline:
         if i is not '':
             rline.append(i)
-    if rline[0] <= 0.0:
-        break
     vp.write('{0}\t{1}\n'.format(ksum, rline[1]))
     vs.write('{0}\t{1}\n'.format(ksum, rline[2]))
     rh.write('{0}\t{1}\n'.format(ksum, rline[3]))

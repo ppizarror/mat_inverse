@@ -32,7 +32,7 @@ freq = 1./[1:20];
 %     hold off;
 % end
 
-WAVE = 'L';
+WAVE = 'R';
 [vr,z,r,dvrvs,dvrrho] = mat_disperse(thk,dns,vp,vs,freq,WAVE);
 
 if strcmp(WAVE,'R')
